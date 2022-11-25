@@ -37,7 +37,14 @@ const Pokedex = () => {
 
     }
 
-     console.log(pokemons)
+    console.log(pokemons)
+
+    const [page, setPage] = useState(1)
+    const pokemonsPerPage = 5
+    const lastIndex = page * pokemonsPerPage
+    const firstIndex = lastIndex - pokemonsPerPage
+    const pokemonPaginated = pokemons.slice(firstIndex, lastIndex)
+
     return (
         <>
             <div className='back_pokedex'>
@@ -53,43 +60,48 @@ const Pokedex = () => {
                 </p>
                 <div>
                     <div className='inpu'>
-                    <input
-                        type="text"
-                        placeholder='Search pokemon'
-                        value={pokemonName}
-                        onChange={e => setPokemonName(e.target.value)}
-                    />{" "}
-                    <button className='search' onClick={searchPokemon}>Search</button>
+                        <input
+                            type="text"
+                            placeholder='Search pokemon'
+                            value={pokemonName}
+                            onChange={e => setPokemonName(e.target.value)}
+                        />{" "}
+                        <button className='search' onClick={searchPokemon}>Search</button>
                     </div><hr />
                     <div className='selectt'>
-                    <select onChange={filterType} name="" id="">
-                        <option>All Pokemons</option>
-                        {pokemonType.map(pokemon => (
+                        <select onChange={filterType} name="" id="">
+                            <option>All Pokemons</option>
+                            {pokemonType.map(pokemon => (
 
-                            <option
-                                value={pokemon.url}
-                                key={pokemon.name}
-                            >
-                                {pokemon.name}
-                            </option>
-                        ))}
-                    </select>
+                                <option
+                                    value={pokemon.url}
+                                    key={pokemon.name}
+                                >
+                                    {pokemon.name}
+                                </option>
+                            ))}
+                        </select>
                     </div>
                 </div>
-                <br /><br />
+                <br />
+                <div className='pages'>
+                    <button className='next' onClick={() => setPage(page - 1)}>Prev Page</button>
+                    <button className='next' onClick={() => setPage(page + 1)}>Next Page</button>{" "}
+
+                </div>
                 <div className='pokerow'>
-                
-                    {pokemons.map(pokemon => (
+
+                    {pokemonPaginated.map(pokemon => (
                         <div className='col-sm-2 col-sm-3'>
-                        <PokemonCard 
-                            url={pokemon.url ? pokemon.url : pokemon.pokemon.url}
-                            key={pokemon.url ? pokemon.url : pokemon.pokemon.url}
-                        />
+                            <PokemonCard
+                                url={pokemon.url ? pokemon.url : pokemon.pokemon.url}
+                                key={pokemon.url ? pokemon.url : pokemon.pokemon.url}
+                            />
                         </div>
                     ))}
-                    
+
                 </div>
-                
+
             </div>
         </>
     );

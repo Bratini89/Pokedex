@@ -53,11 +53,11 @@ p.title {
   border: none;
   border-radius: 30px;
   outline: none;
-  font-size: 19px;
   color: #992b2b;
   box-shadow: -10px -10px 15px rgb(58 58 58 / 9%), 10px 10px 15px rgba(138, 71, 71, 0.35);
   transition: .5s;
   padding: 10px 55px 10px 15px;
+  width: 250px;
 }
 
 h2 {
@@ -201,6 +201,21 @@ a .card {
   text-shadow: 0 0 1.4px #000;
 }
 
+.next {
+  border: 0;
+  color: #424242;
+  background: #f1456b;
+  padding: 0.5rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 2s linear;
+
+}
+
+.next:hover {
+  color: white;
+  box-shadow: 1px 1px 15px 5px blue;
+}
 
 
 @keyframes scroll {
@@ -427,9 +442,8 @@ select {
 }
 
 input {
-  width: 35%;
+  width: 50%;
   border: none;
-
   border-radius: 30px;
   outline: none;
   font-size: 19px;
@@ -460,5 +474,4 @@ input {
   position: absolute;
   box-shadow: 1px 1px 15px 5px #5e43eb;
   margin: 0 auto;
-}
 }

@@ -72,11 +72,11 @@ const PokedexId = () => {
                         </div>
                         <br />
                         <div className='gra'>
-                            <h3>{pokemon.abilities?.[0].ability.name}</h3>
+                            <h3>{pokemon.abilities?.[0].ability?.name}</h3>
                         </div>
                         <br />
                         <div className='poi'>
-                            <h3>{pokemon.abilities?.[1].ability.name}</h3>
+                            <h3>{pokemon.abilities?.[1].ability?.name}</h3>
                         </div>
                     </div>
                 </div>
